@@ -1,6 +1,6 @@
 
-var family = (function(){
-	
+var Contacts = (function(){
+
 	var App = {
 		Models: {},
 		Collections: {},
@@ -94,15 +94,21 @@ var family = (function(){
 		}
 	});
 
-	// Initialize the Application
-	var people = new App.Collections.People([
-		{ firstName: "Lior"    , lastName: "Elrom" },
-		{ firstName: "Tim"     , lastName: "Elrom" },
-		{ firstName: "Michelle", lastName: "Elrom" }
-	]);
+	// Initialize
+	function init(){
+		var people = new App.Collections.People([
+			{ firstName: "Lior"    , lastName: "Elrom" },
+			{ firstName: "Tim"     , lastName: "Elrom" },
+			{ firstName: "Michelle", lastName: "Elrom" }
+		]);
 
-	var formView = new App.Views.Form({ collection: people });
-	var peopleView = new App.Views.People({ collection: people });
-	$('#family').append( peopleView.render().el );
+		var formView = new App.Views.Form({ collection: people });
+		var peopleView = new App.Views.People({ collection: people });
+		$('#contacts').append( peopleView.render().el );
+	}
+
+	init();
+
+	return App;
 
 })();
