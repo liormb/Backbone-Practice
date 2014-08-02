@@ -3,9 +3,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Backbone Practice Example</title>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+	<div class="container router"></div>
+		<a href="#page1"><button id="button-1" class="btn btn-primary btn-sm">Page 1</button></a>
+		<a href="#page2"><button id="button-2" class="btn btn-primary btn-sm">Page 2</button></a>
+		<a href="#page3"><button id="button-3" class="btn btn-primary btn-sm">Page 3</button></a>
+	</div>
 
 	<form id="form" action="">
 		<input type="text" placeholder="Enter your name">
@@ -14,15 +21,19 @@
 
 	<section id="contacts"></section>
 
+	<!-- Template for single Person -->
 	<script id="person" type="text/template">
 		<h1><%= firstName + " " + lastName %></h1>
-		<button class="edit">Edit</button>
-		<button class="delete">Delete</button>
+		<button class="edit btn btn-success btn-xs">Edit</button>
+		<button class="delete btn btn-danger btn-xs">Delete</button>
 	</script>
 
+	<!-- JavaScript Assets -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	<script src="app.js"></script>
+
 </body>
 </html>

@@ -96,6 +96,28 @@ var Contacts = (function(){
 		}
 	});
 
+	// Page Router
+	App.Router = Backbone.Router.extend({
+		routes: {
+			'': 'home',
+			'page1': 'page1',
+			'page2': 'page2',
+			'page3': 'page3'
+		},
+		home: function(){
+			$(document.body).css({backgroundColor: 'rgb(240,240,240)'});
+		},
+		page1: function(){
+			$(document.body).css({backgroundColor: 'rgb(255,0,0)'});
+		},
+		page2: function(){
+			$(document.body).css({backgroundColor: 'rgb(0,255,0)'});
+		},
+		page3: function(){
+			$(document.body).css({backgroundColor: 'rgb(0,0,255)'});
+		}
+	});
+
 	// Initialize
 	function init(){
 		var people = new App.Collections.People([
@@ -104,9 +126,12 @@ var Contacts = (function(){
 			{ firstName: "Michelle", lastName: "Elrom" }
 		]);
 
-		var formView = new App.Views.Form({ collection: people });
+		var formView   = new App.Views.Form({ collection: people });
+		var pageRouter = new App.Router();
 		var peopleView = new App.Views.People({ collection: people });
 		$('#contacts').append( peopleView.render().el );
+
+		Backbone.history.start();
 	}
 
 	init();
