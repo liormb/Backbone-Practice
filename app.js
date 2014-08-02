@@ -1,4 +1,6 @@
 
+// Backbone Contacts Application
+
 var Contacts = (function(){
 
 	var App = {
@@ -88,7 +90,7 @@ var Contacts = (function(){
 			event.preventDefault();
 			var $target = $(event.currentTarget).find('input[type=text]');
 			var input = $target.val().split(' ');
-			var person = new App.Models.Person({ firstName: input[0], lastName: input[1]});
+			var person = new App.Models.Person({ firstName: input[0], lastName: input[1] });
 			this.collection.add(person);
 			$target.val('');
 		}
