@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Backbone Example</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+	<form id="form" action="">
+		<input type="text" placeholder="Enter your name">
+		<input type="submit" value="submit">
+	</form>
+
+	<section id="family"></section>
+
+	<script id="person" type="text/template">
+		<h1><%= firstName + " " + lastName %></h1>
+		<button class="edit">Edit</button>
+		<button class="delete">Delete</button>
+	</script>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+	<script src="app.js"></script>
+</body>
+</html>
