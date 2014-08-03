@@ -96,6 +96,18 @@ var Contacts = (function(){
 		}
 	});
 
+	// Github
+	App.Models.Github = Backbone.Model.extend({
+		urlRoot: 'https://api.github.com/users',
+		initialize: function(){
+			this.fetch({
+				success: function(users){
+					console.dir(users);
+				}
+			});
+		}
+	});Backbone
+
 	// Page Router
 	App.Router = Backbone.Router.extend({
 		routes: {
@@ -130,6 +142,8 @@ var Contacts = (function(){
 		var pageRouter = new App.Router();
 		var peopleView = new App.Views.People({ collection: people });
 		$('#contacts').append( peopleView.render().el );
+
+		var github = new App.Models.Github();
 
 		Backbone.history.start();
 	}
