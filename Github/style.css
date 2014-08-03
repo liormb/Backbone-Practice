@@ -1,0 +1,13 @@
+
+.user {
+	display: block;
+	float: left;
+}
+.user-img {
+	display: block;
+	width: 80px;
+	height: 80px;
+	margin: 6px;
+	border: 1px solid gray;
+	border-radius: 6px;
+}
