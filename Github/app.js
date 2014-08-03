@@ -39,6 +39,7 @@ var Github = (function(){
 		className: 'users',
 		initialize: function(){
 			var self = this;
+			this.collection = new App.Collections.Users();
 			this.collection.fetch().done(function(){
 				$('#github').append( self.render().el );
 			});
@@ -55,6 +56,9 @@ var Github = (function(){
 
 	// Routes
 	App.Router = Backbone.Router.extend({
+		initialize: function(){
+			new App.Views.Users();
+		},
 		routes: {
 			"": "defaultRoute"
 		},
@@ -64,14 +68,11 @@ var Github = (function(){
 	});
 
 	// Initialize Application
-	function init(){
-		var appRouter = new App.Router();
-		var users = new App.Collections.Users();
-		var usersView = new App.Views.Users({ collection: users });
+	var Github = function(){
+		new App.Router();
 		Backbone.history.start();
+		return App;
 	}
 
-	init();
-
-	return App;
+	return new Github();
 })();

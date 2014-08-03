@@ -11,7 +11,9 @@
 
 	<!-- User Template -->
 	<script id="user-template" type="text/template">
-		<img class="user-img" src="<%= avatar_url %>" alt="<%= login %>">
+		<a href="<%= html_url %>" target="_blank">
+			<img class="user-img" src="<%= avatar_url %>" alt="<%= login %>" title="<%= login %>">
+		</a>
 	</script>
 
 	<!-- JavaScript Resources -->
