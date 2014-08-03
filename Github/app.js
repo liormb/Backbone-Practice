@@ -60,9 +60,12 @@ var Github = (function(){
 			var self = this;
 			this.collection = new App.Collections.Users();
 			this.collection.fetch().done(function(){
+				var form = new App.Views.Form({ collection: self.collection });
 				$('#github').append( self.render().el );
 				obj.users = self.collection; /* debug */
+				obj.form = form;             /* debug */
 			});
+			this.collection.on('add', this.addUser, this);
 		},
 		render: function(){
 			this.collection.each(this.addUser, this);
@@ -86,10 +89,15 @@ var Github = (function(){
 			var $target = $(event.currentTarget).find('input[type=text]');
 			var username = $target.val();
 
+			var self = this;
 			var user = new App.Models.User({ id: username });
-			user.fetch().done(function(){
-				console.dir(this);
-				console.dir(user);
+			user.fetch({
+				success: function(d){
+					self.collection.add(user);
+				},
+				error: function(d){
+					alert("The username: " + username + " doesn't exist. Try a different username");
+				}
 			});
 
 			$target.val('');
@@ -100,9 +108,7 @@ var Github = (function(){
 	App.Router = Backbone.Router.extend({
 		initialize: function(){
 			var usersView = new App.Views.Users();
-			var form = new App.Views.Form({ collection: App.Collections.Users });
 			obj.usersView = usersView; /* debug */
-			obj.form = form;           /* debug */
 		},
 		routes: {
 			"": "defaultRoute"
