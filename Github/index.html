@@ -3,9 +3,15 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Backbone Github Practice</title>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+	<form id="form" action="">
+		<input type="text" placeholder="Enter a username">
+		<input type="submit" value="Search">
+	</form>
 	
 	<div id="github"></div>
 
@@ -14,12 +20,15 @@
 		<a href="<%= html_url %>" target="_blank">
 			<img class="user-img" src="<%= avatar_url %>" alt="<%= login %>" title="<%= login %>">
 		</a>
+		<button class="edit btn btn-xs btn-success">Edit</button>
+		<button class="delete btn btn-xs btn-danger">Delete</button>
 	</script>
 
 	<!-- JavaScript Resources -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	<script src="app.js"></script>
 </body>
 </html>

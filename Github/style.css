@@ -2,6 +2,13 @@
 .user {
 	display: block;
 	float: left;
+	margin: 6px;
+	padding: 10px;
+	text-align: center;
+	background-color: rgb(220,220,220);
+	border: 1px solid gray;
+	border-radius: 6px;
+	transition: 0.5s ease;
 }
 .user-img {
 	display: block;
