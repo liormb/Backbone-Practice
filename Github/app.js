@@ -10,6 +10,8 @@ var Github = (function(){
 		Templates: {}
 	};
 
+	var obj = {}; /* debug */
+
 	// User Model
 	App.Models.User = Backbone.Model.extend({});
 
@@ -42,6 +44,7 @@ var Github = (function(){
 			this.collection = new App.Collections.Users();
 			this.collection.fetch().done(function(){
 				$('#github').append( self.render().el );
+				obj.users = self.collection; /* debug */
 			});
 		},
 		render: function(){
@@ -51,13 +54,15 @@ var Github = (function(){
 		addUser: function(user){
 			var userView = new App.Views.User({ model: user });
 			this.$el.append( userView.render().el );
+			obj.userView = userView; /* debug */
 		}
 	});
 
 	// Routes
 	App.Router = Backbone.Router.extend({
 		initialize: function(){
-			new App.Views.Users();
+			var usersView = new App.Views.Users();
+			obj.usersView = usersView; /* debug */
 		},
 		routes: {
 			"": "defaultRoute"
@@ -69,9 +74,10 @@ var Github = (function(){
 
 	// Initialize Application
 	var Github = function(){
-		new App.Router();
+		var router = new App.Router();
 		Backbone.history.start();
-		return App;
+		obj.router = router; /* debug */
+		return obj;
 	}
 
 	return new Github();
