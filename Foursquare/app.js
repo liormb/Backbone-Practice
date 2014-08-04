@@ -62,6 +62,7 @@ var Foursquare = (function(){
 					var collection = new App.Collections.Places(response);
 					var placesView = new App.Views.Places({ collection: collection });
 					$('#foursquare').append( placesView.render().el );
+					test = collection;
 				},
 				error: function(d){
 					console.log("Can't fetch data from server");

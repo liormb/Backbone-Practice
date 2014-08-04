@@ -12,7 +12,8 @@
 
 	<!-- Foursquare Single Place Template -->
 	<script id="place-template" type="text/template">
-		<h1>Place</h1>
+		<h1><%= venue.name %></h1>
+		<img src="<%= venue.photos.groups[0].items[0].prefix + '128x128' + venue.photos.groups[0].items[0].suffix %>" title="<%= venue.name %>" alt="<%= venue.name %>">
 	</script>
 
 	<!-- JavaScript Resources -->
